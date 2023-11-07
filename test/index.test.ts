@@ -1,31 +1,47 @@
-import { Web3, core } from "web3";
-import { TemplatePlugin } from "../src";
+import { Web3 } from "web3";
+import { NearPlugin } from "../src";
 
-describe("TemplatePlugin Tests", () => {
-  it("should register TemplatePlugin plugin on Web3Context instance", () => {
-    const web3Context = new core.Web3Context("http://127.0.0.1:8545");
-    web3Context.registerPlugin(new TemplatePlugin());
-    expect(web3Context.template).toBeDefined();
-  });
+// endpoint URL varies by network:
+//  mainnet https://rpc.mainnet.near.org
+//  testnet https://rpc.testnet.near.org
+//  betanet https://rpc.betanet.near.org (may be unstable)
+//  localnet http://localhost:3030
+// Querying Historical Data
+//  mainnet https://archival-rpc.mainnet.near.org
+//  testnet https://archival-rpc.testnet.near.org
 
-  describe("TemplatePlugin method tests", () => {
-    let consoleSpy: jest.SpiedFunction<typeof global.console.log>;
+describe("NearPlugin Tests", () => {
+
+  describe("NearPlugin method tests", () => {
 
     let web3: Web3;
 
     beforeAll(() => {
-      web3 = new Web3("http://127.0.0.1:8545");
-      web3.registerPlugin(new TemplatePlugin());
-      consoleSpy = jest.spyOn(global.console, "log").mockImplementation();
+      web3 = new Web3("https://rpc.mainnet.near.org");
+      web3.registerPlugin(new NearPlugin());
     });
 
     afterAll(() => {
-      consoleSpy.mockRestore();
     });
 
-    it("should call TempltyPlugin test method with expected param", () => {
-      web3.template.test("test-param");
-      expect(consoleSpy).toHaveBeenCalledWith("test-param");
+    it("should call `getBlockNumber` method with expected param", async () => {
+      const result = await web3.near.getBlockNumber({ blockId: "7nsuuitwS7xcdGnD9JgrE22cRB2vf2VS4yh1N9S71F4d" });
+      expect(typeof result).toBe("number");
+      expect(result).toBeGreaterThan(0);
+      // console.log(result);
     });
+    
+    // skip this test to prevent rate limit
+    it.skip("should call `block` method with expected param", async () => {
+
+      const result = await web3.near.block({ finality: "final" });
+      expect(result).toBeDefined();
+      expect(result.author).toBeDefined();
+      expect(result.header).toBeDefined();
+      expect(result.chunks).toBeDefined();
+
+      // console.log(result);
+    });
+    
   });
 });

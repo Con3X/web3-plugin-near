@@ -1,17 +1,18 @@
 {
-  "name": "web3-plugin-template",
-  "version": "1.0.0",
-  "description": "Template plugin to extend web3.js with additional methods",
+  "name": "@web3-plugin/near",
+  "version": "1.0.0-alpha.1",
+  "description": "web3.js plugin for Near Protocol",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
-  "homepage": "https://github.com/web3/web3.js-plugin-template#readme",
+  "homepage": "https://github.com/web3-plugin/near#readme",
   "bugs": {
-    "url": "https://github.com/web3/web3.js-plugin-template/issues"
+    "url": "https://github.com/web3-plugin/near/issues"
   },
   "scripts": {
     "lint": "eslint '{src,test}/**/*.ts'",
     "build": "tsc --project tsconfig.build.json",
-    "test": "jest --config=./test/jest.config.js"
+    "test": "jest --config=./test/jest.config.js",
+    "build-and-publish": "yarn build && npm publish --access public"
   },
   "contributors": [
     "ChainSafe <info@chainsafe.io>"
@@ -19,9 +20,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git@github.com:web3/web3.js-plugin-template.git"
+    "url": "git@github.com:web3-plugin/near.git"
   },
   "dependencies": {
+    "@near-js/types": "^0.0.4"
   },
   "devDependencies": {
     "@chainsafe/eslint-config": "^2.0.0",
