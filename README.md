@@ -29,6 +29,13 @@ async function main() {
 main();
 ```
 
+Creating a Local Development Environment
+------------
+
+Follow: https://docs.near.org/develop/testing/kurtosis-localnet
+
+[If this is you second time, just double check running `~/launch-local-near-cluster.sh` and ensure docker containers are running]
+
 Contributing
 ------------
 
