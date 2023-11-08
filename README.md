@@ -1,9 +1,7 @@
 web3.js plugin for Near Protocol
 ===========
-This is a PoC project for web3.js plugin for Near Protocol.
 
-It currently implements only `block` its alias `getBlock`, and `getBlockNumber`.
-
+This is an npm package containing a web3.js plugin for Near Protocol.
 
 Plugin usage by users
 ------------
@@ -28,6 +26,19 @@ async function main() {
 
 main();
 ```
+
+Project progress:
+------------
+
+![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100?dangerColor=ccee00&warningColor=eeff00&successColor=006600) Implement all basic Near RPC methods 
+
+However, there is a difference between calling those function at near-api-js and in this plugin. In this plugin, the internal handling is similar to web3.js. So the provider errors could be caught in the same way the developer would catch with web3.js.
+
+![](https://us-central1-progress-markdown.cloudfunctions.net/progress/30?dangerColor=ccee00&warningColor=eeff00&successColor=006600) implement few alternative methods to web3.eth
+
+![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0?dangerColor=800000&warningColor=ff9900&successColor=006600) implement web3.near.eth.Contract
+
+![](https://us-central1-progress-markdown.cloudfunctions.net/progress/0?dangerColor=800000&warningColor=ff9900&successColor=006600) implement web3.near.eth.accounts
 
 Creating a Local Development Environment
 ------------
