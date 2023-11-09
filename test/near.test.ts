@@ -28,6 +28,7 @@ describe("NearPlugin Tests", () => {
       const result = await web3.near.getBlockNumber({ blockId: 0 });
       expect(typeof result).toBe("number");
       expect(result).toBe(0);
+
       // console.log(result);
     });
 
@@ -40,6 +41,8 @@ describe("NearPlugin Tests", () => {
       expect(result.chunks).toBeDefined();
 
       expect(result.header.height).toBeGreaterThanOrEqual(0);
+
+      // consider checking more on the result
 
       // console.log(result);
     });
@@ -58,6 +61,8 @@ describe("NearPlugin Tests", () => {
       const result = await web3.near.isSyncing();
       expect(result).toBeDefined();
 
+      // consider checking more on the result
+
       // console.log(result);
     });
 
@@ -65,6 +70,8 @@ describe("NearPlugin Tests", () => {
 
       const result = await web3.near.getGasPrice();
       expect(result).toBeDefined();
+
+      // consider checking more on the result
 
       // console.log(result);
     });
@@ -74,6 +81,8 @@ describe("NearPlugin Tests", () => {
       const result = await web3.near.getCoinbase();
       expect(result).toBeDefined();
 
+      // consider checking more on the result
+      
       // console.log(result);
     });
 
@@ -81,6 +90,8 @@ describe("NearPlugin Tests", () => {
 
       const result = await web3.near.getBalance('test.near', { blockId: 0 });
       expect(result).toBeGreaterThanOrEqual(0);
+
+      // consider checking more on the result
 
       // console.log(result);
     });
