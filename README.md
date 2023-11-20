@@ -64,7 +64,8 @@ However, there is a difference between calling those function at near-api-js and
 
 ### NEAR Aurora Plugin
 
-There is a web3.js plugin for the Aurora. Check its repository at: https://github.com/conx3/web3-plugin-aurora
+There is a web3.js plugin for the Aurora. You can check its repository at: https://github.com/conx3/web3-plugin-aurora
+
 Running Tests
 --------------
 
