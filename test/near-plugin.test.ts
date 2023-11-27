@@ -13,10 +13,14 @@ import { NearPlugin } from '../src';
 describe('NearPlugin Tests', () => {
 	describe('NearPlugin method tests', () => {
 		let web3: Web3;
+		let web3OnTestNet: Web3;
 
 		beforeAll(() => {
 			web3 = new Web3('http://127.0.0.1:8332');
 			web3.registerPlugin(new NearPlugin());
+
+			web3OnTestNet = new Web3('https://rpc.testnet.near.org');
+			web3OnTestNet.registerPlugin(new NearPlugin());
 		});
 
 		afterAll(() => {});
@@ -77,13 +81,28 @@ describe('NearPlugin Tests', () => {
 			// console.log(result);
 		});
 
-		it('should call `getCoinbase`', async () => {
+		it('should call `getBalance`', async () => {
 			const result = await web3.near.getBalance('test.near', { blockId: 0 });
 			expect(result).toBeGreaterThanOrEqual(0);
+		});
 
-			// consider checking more on the result
+		it('should call `getCode` ', async () => {
+			const result = await web3OnTestNet.near.getCode('guest-book.testnet', { finality: 'final' });
+			expect(result).toMatch(/AGFzbQEAAAABXxFgAX8Bf2ACf38Bf2ACf38AYAN.*?/);
+		});
 
-			// console.log(result);
+		it('should throw when calling `getCode` on a non-contract account to ', async () => {
+			const res = web3.near.getCode('test.near', { finality: 'final' });
+			await expect(res).rejects.toMatchObject({
+				innerError: {
+					cause: {
+						name: 'NO_CONTRACT_CODE',
+					},
+					code: -32000,
+					message: 'Server error',
+					data: 'Contract code for contract ID #test.near has never been observed on the node',
+				},
+			});
 		});
 	});
 });

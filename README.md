@@ -41,7 +41,7 @@ near();
 
 You can play with the npm package online at: https://codesandbox.io/p/sandbox/broken-haze-9krygq?file=%2Findex.js
 
-Project progress:
+Project progress
 ------------
 
 ### NEAR Plugin
@@ -64,7 +64,7 @@ However, there is a difference between calling those function at near-api-js and
 
 ### NEAR Aurora Plugin
 
-There is a web3.js plugin for the Aurora. You can check its repository at: https://github.com/conx3/web3-plugin-aurora
+There is a web3.js plugin for the Aurora Engine that is an EVM running atop NEAR Protocol. You can check its repository at: https://github.com/conx3/web3-plugin-aurora
 
 Running Tests
 --------------
@@ -83,10 +83,11 @@ Executing `yarn test` would give something like:
       ✓ should call `isSyncing` (2 ms)
       ✓ should call `getGasPrice` (2 ms)
       ✓ should call `getCoinbase` (2 ms)
-      ✓ should call `getCoinbase` (2 ms)
+      ✓ should call `getBalance` (2 ms)
+      ...
 
 Test Suites: 1 passed, 1 total
-Tests:       7 passed, 7 total
+Tests:       xx passed, xx total
 Snapshots:   0 total
 Time:        1.685 s, estimated 2 s
 Ran all test suites.

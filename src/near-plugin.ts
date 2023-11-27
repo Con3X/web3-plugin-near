@@ -22,15 +22,21 @@ import {
 	QueryResponseKind,
 	TypedError,
 	AccountView,
+	ContractCodeView,
 } from '@near-js/types';
 import { encodeTransaction, SignedTransaction } from '@near-js/transactions';
 import { baseEncode } from './utils';
 
 /**
  * Near Protocol RPC plugin for web3.js
+ * Reference: https://docs.near.org/api/rpc/introduction
  *
- * Note: To provide a good programming experience, lots of code in this file is taken from near-api-js/packages/types/src/provider/response.ts.
- * However, there is a difference between calling those function at near-api-js in this plugin. In this plugin the handling is similar to web3.js.
+ * Note: To provide a good programming experience, lots of code in this file is taken from:
+ * 'near-api-js/packages/providers/src/json-rpc-provider.ts' at:
+ * https://github.com/near/near-api-js/blob/0f764ee03b5747fbf8a971c7b04ef8326238a1d0/packages/providers/src/json-rpc-provider.ts
+ *
+ * However, there is a difference between calling those function at near-api-js and in this plugin.
+ * In this plugin the handling is similar to web3.js.
  */
 export class NearPlugin extends Web3PluginBase {
 	public pluginNamespace = 'near';
@@ -503,12 +509,44 @@ export class NearPlugin extends Web3PluginBase {
 	 * ```
 	 */
 	public async getBalance(accountId: string, blockReference: BlockReference) {
-		const account = (await this.query({
+		const account = await this.query<AccountView>({
 			request_type: 'view_account',
 			account_id: accountId,
 			...blockReference,
-		})) as AccountView;
+		});
 		return BigInt(account.amount);
+	}
+
+	/**
+	 * this method is not compatible with Near Protocol RPC.
+	 * However, if you do not think so, please open an issue or a PR at web3-plugin/near repo.
+	 */
+	public async getStorageAt() {
+		throw new Error(
+			'Method not compatible with Near Protocol RPC. However, if you do not think so, please open an issue or a PR at web3-plugin/near repo.',
+		);
+	}
+
+	/**
+	 * Get the code at a specific address.
+	 *
+	 * @param address The address to get the code from.
+	 * @param blockReference ({@link BlockReference} Specifies what block to use as the current state for the balance query.
+	 * @returns Returns the contract code (Wasm binary) deployed to the account. Please note that the returned code will be encoded in base64.
+	 *
+	 * ```ts
+	 * web3.near.getCode("guest-book.testnet").then(console.log);
+	 * > "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU="
+	 *
+	 * ```
+	 */
+	public async getCode(accountId: string, blockReference: BlockReference) {
+		const result = await this.query<ContractCodeView>({
+			request_type: 'view_code',
+			account_id: accountId,
+			...blockReference,
+		});
+		return result.code_base64;
 	}
 
 	// @TODO: implement the rest of the methods available in web3.eth
