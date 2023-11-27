@@ -1,9 +1,18 @@
 {
 	"name": "@conx3/web3-plugin-near",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "web3.js plugin for Near Protocol",
 	"author": "Muhammad Altabba",
 	"license": "MIT",
+	"keywords": [
+		"near",
+		"near protocol",
+		"plugin",
+		"web3",
+		"web3js",
+		"web3.js",
+		"blockchain"
+	],
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"homepage": "https://github.com/conx3/web3-plugin-near#readme",
