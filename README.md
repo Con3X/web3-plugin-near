@@ -1,6 +1,8 @@
 web3.js plugin for NEAR Protocol
 ===========
 
+[![Dependency Status][downloads-image]][npm-url]
+
 This is an npm package containing a web3.js plugin for NEAR Protocol.
 
 Plugin usage by users
@@ -105,3 +107,8 @@ Pull requests are welcome. For major changes, please open an issue first
 to discuss what you would like to change.
 
 Please make sure to update tests as appropriate.
+
+
+
+[npm-url]: https://npmjs.org/package/@conx3/web3-plugin-near
+[downloads-image]: https://img.shields.io/npm/dm/@conx3/web3-plugin-near?label=npm%20downloads
