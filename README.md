@@ -8,12 +8,12 @@ This is an npm package containing a web3.js plugin for NEAR Protocol.
 Plugin usage by users
 ------------
 At your typescript project first run:
-`yarn add web3 @conx3/web3-plugin-near`
+`yarn add web3 @con3x/web3-plugin-near`
 
 And here is how to use the plugin:
 ```ts
 import { Web3 } from 'web3';
-import { NearPlugin } from '@conx3/web3-plugin-near';
+import { NearPlugin } from '@con3x/web3-plugin-near';
 
 async function near() {
   const web3 = new Web3('https://archival-rpc.mainnet.near.org');
@@ -51,7 +51,7 @@ Project progress
 ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100?dangerColor=ccee00&warningColor=eeff00&successColor=006600) Create NEAR Plugin and publish it to the `npm` registry
 
 The web3.js plugin for NEAR has been publish to  
-https://www.npmjs.com/package/@conx3/web3-plugin-near and it is useable inside this example playground: https://codesandbox.io/p/sandbox/broken-haze-9krygq?file=%2Findex.js Additionally, some tests has been written to test some of the functionality.
+https://www.npmjs.com/package/@con3x/web3-plugin-near and it is useable inside this example playground: https://codesandbox.io/p/sandbox/broken-haze-9krygq?file=%2Findex.js Additionally, some tests has been written to test some of the functionality.
 
 
 ![](https://us-central1-progress-markdown.cloudfunctions.net/progress/100?dangerColor=ccee00&warningColor=eeff00&successColor=006600) Implement all basic NEAR RPC methods 
@@ -66,7 +66,7 @@ However, there is a difference between calling those function at near-api-js and
 
 ### NEAR Aurora Plugin
 
-There is a web3.js plugin for the Aurora Engine that is an EVM running atop NEAR Protocol. You can check its repository at: https://github.com/conx3/web3-plugin-aurora
+There is a web3.js plugin for the Aurora Engine that is an EVM running atop NEAR Protocol. You can check its repository at: https://github.com/con3x/web3-plugin-aurora
 
 Running Tests
 --------------
@@ -110,5 +110,5 @@ Please make sure to update tests as appropriate.
 
 
 
-[npm-url]: https://npmjs.org/package/@conx3/web3-plugin-near
-[downloads-image]: https://img.shields.io/npm/dm/@conx3/web3-plugin-near?label=npm%20downloads
+[npm-url]: https://npmjs.org/package/@con3x/web3-plugin-near
+[downloads-image]: https://img.shields.io/npm/dm/@con3x/web3-plugin-near?label=npm%20downloads

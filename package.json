@@ -1,6 +1,6 @@
 {
-	"name": "@conx3/web3-plugin-near",
-	"version": "1.0.5",
+	"name": "@con3x/web3-plugin-near",
+	"version": "1.0.6",
 	"description": "web3.js plugin for Near Protocol",
 	"author": "Muhammad Altabba",
 	"license": "MIT",
@@ -15,9 +15,9 @@
 	],
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
-	"homepage": "https://github.com/conx3/web3-plugin-near#readme",
+	"homepage": "https://github.com/con3x/web3-plugin-near#readme",
 	"bugs": {
-		"url": "https://github.com/conx3/web3-plugin-near/issues"
+		"url": "https://github.com/con3x/web3-plugin-near/issues"
 	},
 	"scripts": {
 		"lint": "eslint '{src,test}/**/*.ts'",
@@ -28,7 +28,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:conx3/web3-plugin-near.git"
+		"url": "git@github.com:con3x/web3-plugin-near.git"
 	},
 	"dependencies": {
 		"@near-js/transactions": "^0.2.1",
