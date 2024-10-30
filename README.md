@@ -96,7 +96,7 @@ Ran all test suites.
 Done in 2.16s.
 ```
 
-Note: Before running the tests, be sure to run NEAR development node before. You can follow: https://docs.near.org/develop/testing/kurtosis-localnet. And if this is not your first time following the steps for running a development node, just double check the values when running `~/launch-local-near-cluster.sh` and ensure docker containers are running]
+Note: Before running the tests, be sure to run a NEAR development node on port . You can follow the documentation to run a local testnet: https://near-nodes.io/validator/running-a-node.
 
 
 

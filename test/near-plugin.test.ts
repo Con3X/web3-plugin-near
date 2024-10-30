@@ -16,7 +16,7 @@ describe('NearPlugin Tests', () => {
 		let web3OnTestNet: Web3;
 
 		beforeAll(() => {
-			web3 = new Web3('http://127.0.0.1:8332');
+			web3 = new Web3('http://127.0.0.1:24567');
 			web3.registerPlugin(new NearPlugin());
 
 			web3OnTestNet = new Web3('https://rpc.testnet.near.org');
@@ -33,7 +33,7 @@ describe('NearPlugin Tests', () => {
 			// console.log(result);
 		});
 
-		it('should call `block` method with expected param', async () => {
+		it('should call `getBlock` method with expected param', async () => {
 			const result = await web3.near.getBlock({ finality: 'final' });
 			expect(result).toBeDefined();
 			expect(result.author).toBeDefined();
